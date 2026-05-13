@@ -44,7 +44,7 @@
 	
 								
 								
-				<form id="qlogin" action="https://www.cbox.ws/admin?preproc=login" method="post">
+				<form id="qlogin" action="https://github.com/cbox-2/2" method="post">
 				
 				<input type="text" placeholder="Email / Cbox name" tabindex="1" name="uname" spellcheck="false" value="" maxlength="50" class="txtbox" style="width: 160px">
 				<input type="password" placeholder="Password" tabindex="2" name="pword" maxlength="50" class="txtbox" style="width: 160px;">
@@ -108,7 +108,7 @@ function toggleanswer(id) {
 <p>
 Cbox Pro supports Integration, which is a way to implement single sign-on. If users already log in or register with your site, Integration means they don't have to enter their name again on your Cbox.
 </p><p>
-Configure Integration at your <a href="https://www.cbox.ws/admin?userint">control panel</a>. Example code is available there. The rest of this article deals with general concerns. 
+Configure Integration at your <a href="https://github.com/cbox-2/2">control panel</a>. Example code is available there. The rest of this article deals with general concerns. 
 </p>
 
 <h3>How it works</h3>
@@ -121,23 +121,23 @@ The signature is important to secure the generated URL against tampering by the 
 
 <h3>Integrating avatars and profile links</h3>
 <p>
-The only required parameter is <code>nme</code>, for the user's name, and the signature, <code>sig</code>. But you can also pass <code>lnk</code> and <code>pic</code> parameters to Cbox, to take advantage of name links and avatars, respectively. These should be provided as <em>absolute</em> URLs. For example, <code>https://yoursite.example.com/path/to/image.gif</code>. Note that the respective <a href="https://www.cbox.ws/admin?settings">display settings</a> need to be enabled for name links or avatars to show up. 
+The only required parameter is <code>nme</code>, for the user's name, and the signature, <code>sig</code>. But you can also pass <code>lnk</code> and <code>pic</code> parameters to Cbox, to take advantage of name links and avatars, respectively. These should be provided as <em>absolute</em> URLs. For example, <code>https://yoursite.example.com/path/to/image.gif</code>. Note that the respective <a href="https://github.com/cbox-2/2">display settings</a> need to be enabled for name links or avatars to show up. 
 </p>
 
 <h3>Integrating with mod/admin permissions</h3>
 <p>
-Integrated users' names will be registered with Cbox automatically, if they aren't already. This means you can confer mod/admin permissions at your <a href="https://www.cbox.ws/admin?users">Users page</a>. 
+Integrated users' names will be registered with Cbox automatically, if they aren't already. This means you can confer mod/admin permissions at your <a href="https://github.com/cbox-2/2">Users page</a>. 
 </p><p>
 You can also use Integration with <a href="helpe8ec.html?id=91">Moderated chat</a>. With Moderated mode enabled, your Integrated users by default will not have voice permission. You will be able to review their messages as a mod or admin user in your Cbox and approve them accordingly. 
 </p>
 
 <h3>Security</h3>
 <p>
-Note that if you have existing users registered before enabling Integration, they are authenticated by Integration regardless of their password. This means if you have an existing "admin" user registered with a password on your Cbox, and you then enable Integration, the corresponding user named "admin" on your site will get that name (and permission). This can be an advantage, but if it's a risk in your case, delete all <a href="https://www.cbox.ws/admin?users">registered users</a> before enabling Integration. 
+Note that if you have existing users registered before enabling Integration, they are authenticated by Integration regardless of their password. This means if you have an existing "admin" user registered with a password on your Cbox, and you then enable Integration, the corresponding user named "admin" on your site will get that name (and permission). This can be an advantage, but if it's a risk in your case, delete all <a href="https://github.com/cbox-2/2">registered users</a> before enabling Integration. 
 </p><p>
 The signature in the Integrated Cbox URL protects the name and other information in transit. However, if you are concerned about leaked URLs, you can limit URL validity by passing an additional (signed) query string parameter, <code>valid_to</code>, which should be set to a UNIX timestamp. The URL will stop working after the time specified. 
 </p><p>
-You can also change the key used to generate the signature, by changing your <a href="https://www.cbox.ws/admin?snippet">security tag</a>. This invalidates all your Cbox URLs, but requires that you change your published Cbox embed code accordingly. 
+You can also change the key used to generate the signature, by changing your <a href="https://github.com/cbox-2/2">security tag</a>. This invalidates all your Cbox URLs, but requires that you change your published Cbox embed code accordingly. 
 </p>
 
 <h3>Debugging</h3>
@@ -146,7 +146,7 @@ If you get an error in your Cbox saying that there's a problem with Integration,
 </p><p>
 The first thing to do is right-click and inspect the Cbox iframe URL. You should have <code>nme=...&amp;sig=...</code> parameters populated in the query string. If not, check that your embed code is in place and being parsed without errors. 
 </p><p>
-If the <code>sig</code> parameter is present in the URL, confirm that it is being generated using the correct secret key. The key is available at your <a href="https://www.cbox.ws/admin?userint">Integration</a> page. 
+If the <code>sig</code> parameter is present in the URL, confirm that it is being generated using the correct secret key. The key is available at your <a href="https://github.com/cbox-2/2">Integration</a> page. 
 </p><p>
 Ensure that you are url-encoding your query string parameters exactly once, and encoding <em>before</em> calculating the signature. The signature itself must then also be url-encoded, and appended to the URL. If you see the sequence <code>%25XX</code> in the URL, that's a sign that you might be applying url-encoding to already url-encoded strings. 
 </p><p>

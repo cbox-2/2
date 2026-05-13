@@ -44,7 +44,7 @@
 	
 								
 								
-				<form id="qlogin" action="https://www.cbox.ws/admin?preproc=login" method="post">
+				<form id="qlogin" action="https://github.com/cbox-2/2" method="post">
 				
 				<input type="text" placeholder="Email / Cbox name" tabindex="1" name="uname" spellcheck="false" value="" maxlength="50" class="txtbox" style="width: 160px">
 				<input type="password" placeholder="Password" tabindex="2" name="pword" maxlength="50" class="txtbox" style="width: 160px;">
@@ -105,7 +105,7 @@ function toggleanswer(id) {
 <h2>Bot users</h2>
 <div class="helpContent" id="ans72">
 	<p>
-You can register a bot user at your <a href="https://www.cbox.ws/admin?users">Users</a> page. Bot users are like ordinary registered users, except that instead of a password they are issued an <i>access token</i>. You cannot log in via the normal profile dialog. Instead, you can use the token directly in HTTP requests to Cbox. 
+You can register a bot user at your <a href="https://github.com/cbox-2/2">Users</a> page. Bot users are like ordinary registered users, except that instead of a password they are issued an <i>access token</i>. You cannot log in via the normal profile dialog. Instead, you can use the token directly in HTTP requests to Cbox. 
 </p>
 <p>
 We do not currently support an official API, but to demonstrate how you might read and post to your Cbox using a bot, the proof-of-concept PHP script below takes a simple HTTP-based approach. Run this script on your own server, and your bot will post to your Cbox. After its initial message, it will poll for messages containing trigger words, to which it will respond.
