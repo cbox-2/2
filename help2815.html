@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from www.cbox.ws/help?id=80 by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 13 May 2026 04:54:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>User Integration - Help &middot; Cbox</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content='width=device-width, initial-scale=1' name='viewport'>
+<meta name="description" content="Cbox live chat is an embeddable chat app for online communities, groups, and live-streaming events.">
+<link href="data:image/x-icon;base64,AAABAAEAEBACAAAAAACwAAAAFgAAACgAAAAQAAAAIAAAAAEAAQAAAAAAQAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA" rel="icon" type="image/x-icon">
+<link rel="stylesheet" href="style3dc9.css?2050221">
+</head>
+<body id="mainbody">
+
+	<script>
+	// Define stub
+	var rcvdformresponse = function () {};
+	</script>
+	
+	<div id="mask"></div>
+
+
+<!--[if lte IE 7]>
+	<div class="notice_er notice_top">
+		You are using an old version of Internet Explorer or you are in Compatibility View mode. 
+		This website will not work correctly. 
+		<br>
+		Please upgrade your browser or disable Compatibility View.
+	</div>
+<![endif]-->
+
+
+<div id="bodywrap">
+	<div id="header">
+		<div class="wrap">
+
+			<a id="logo" href="index.html">
+				<img src="gfx/logo400.png" width="200" height="86" alt="Cbox" border="0">
+			</a>
+
+			<div id="headerExtras">
+	
+								
+								
+				<form id="qlogin" action="https://www.cbox.ws/admin?preproc=login" method="post">
+				
+				<input type="text" placeholder="Email / Cbox name" tabindex="1" name="uname" spellcheck="false" value="" maxlength="50" class="txtbox" style="width: 160px">
+				<input type="password" placeholder="Password" tabindex="2" name="pword" maxlength="50" class="txtbox" style="width: 160px;">
+				<input type="submit" value="Log in" tabindex="3">
+
+				</form>
+							</div>
+		</div>
+	</div>
+
+		
+	<div id="topbar">
+		<div class="wrap">
+			<span class="Spacer">&nbsp;</span>
+			<a href="index-2.html" class="button">Home
+			</a><a href="products.html" class="button">Plans &amp; Pricing
+			</a><a href="getone.html" class="button">Sign up
+			</a><a href="upgrade.html" class="button">Upgrade
+			</a><a href="help.html" class="button">Support
+			</a>
+		</div>
+	</div>
+	
+	<div id="wideimg" style="position: relative; width: 100%; left: 0">
+	</div>
+	
+	<div id="main" class="wrap ">
+<script language="JavaScript">
+var hit = new Array();
+var openans = new Array();
+
+function toggleanswer(id) {
+  if (typeof(document.getElementById("ans"+id).style.display) == "undefined") {
+    return true;
+  }
+  x = document.getElementById("ans"+id);
+  if (x.style.display != "none") {
+    x.style.display = "none";
+  }
+  else {
+    x.style.display = "";
+    if (document.images && !hit[id]) {
+      (new Image()).src="/help?hit="+id;
+      hit[id] = true;
+    }
+	if (x.scrollIntoViewIfNeeded) {
+		// Cuts question title off in some cases; workaround not straightforward. 
+		x.scrollIntoViewIfNeeded();
+	}
+  }
+  return false;
+}
+</script>
+
+<div id="content" class="withAside">
+<h1>Help &amp; Support</h1>
+
+<h2>User Integration</h2>
+<div class="helpContent" id="ans80">
+	<p class="aside">You need some development experience to make use of this feature, with the ability to edit your site's back-end code.</p>
+<p>
+Cbox Pro supports Integration, which is a way to implement single sign-on. If users already log in or register with your site, Integration means they don't have to enter their name again on your Cbox.
+</p><p>
+Configure Integration at your <a href="https://www.cbox.ws/admin?userint">control panel</a>. Example code is available there. The rest of this article deals with general concerns. 
+</p>
+
+<h3>How it works</h3>
+<p>
+Integration is implemented using query string parameters appended to the Cbox iframe URL. The final parameter is a signature generated from the rest of the URL. You don't need any external components or callbacks, just language support for HMAC-SHA256, base64-encoding, and url-encoding. 
+</p>
+<p>
+The signature is important to secure the generated URL against tampering by the user or any other intermediary. However, most back-end platforms have built-in support for the necessary functions. 
+</p>
+
+<h3>Integrating avatars and profile links</h3>
+<p>
+The only required parameter is <code>nme</code>, for the user's name, and the signature, <code>sig</code>. But you can also pass <code>lnk</code> and <code>pic</code> parameters to Cbox, to take advantage of name links and avatars, respectively. These should be provided as <em>absolute</em> URLs. For example, <code>https://yoursite.example.com/path/to/image.gif</code>. Note that the respective <a href="https://www.cbox.ws/admin?settings">display settings</a> need to be enabled for name links or avatars to show up. 
+</p>
+
+<h3>Integrating with mod/admin permissions</h3>
+<p>
+Integrated users' names will be registered with Cbox automatically, if they aren't already. This means you can confer mod/admin permissions at your <a href="https://www.cbox.ws/admin?users">Users page</a>. 
+</p><p>
+You can also use Integration with <a href="helpe8ec.html?id=91">Moderated chat</a>. With Moderated mode enabled, your Integrated users by default will not have voice permission. You will be able to review their messages as a mod or admin user in your Cbox and approve them accordingly. 
+</p>
+
+<h3>Security</h3>
+<p>
+Note that if you have existing users registered before enabling Integration, they are authenticated by Integration regardless of their password. This means if you have an existing "admin" user registered with a password on your Cbox, and you then enable Integration, the corresponding user named "admin" on your site will get that name (and permission). This can be an advantage, but if it's a risk in your case, delete all <a href="https://www.cbox.ws/admin?users">registered users</a> before enabling Integration. 
+</p><p>
+The signature in the Integrated Cbox URL protects the name and other information in transit. However, if you are concerned about leaked URLs, you can limit URL validity by passing an additional (signed) query string parameter, <code>valid_to</code>, which should be set to a UNIX timestamp. The URL will stop working after the time specified. 
+</p><p>
+You can also change the key used to generate the signature, by changing your <a href="https://www.cbox.ws/admin?snippet">security tag</a>. This invalidates all your Cbox URLs, but requires that you change your published Cbox embed code accordingly. 
+</p>
+
+<h3>Debugging</h3>
+<p>
+If you get an error in your Cbox saying that there's a problem with Integration, the most common cause is an invalid signature. 
+</p><p>
+The first thing to do is right-click and inspect the Cbox iframe URL. You should have <code>nme=...&amp;sig=...</code> parameters populated in the query string. If not, check that your embed code is in place and being parsed without errors. 
+</p><p>
+If the <code>sig</code> parameter is present in the URL, confirm that it is being generated using the correct secret key. The key is available at your <a href="https://www.cbox.ws/admin?userint">Integration</a> page. 
+</p><p>
+Ensure that you are url-encoding your query string parameters exactly once, and encoding <em>before</em> calculating the signature. The signature itself must then also be url-encoded, and appended to the URL. If you see the sequence <code>%25XX</code> in the URL, that's a sign that you might be applying url-encoding to already url-encoded strings. 
+</p><p>
+If you are still getting errors, <a href="contact.html">contact us</a> including the code you are using and an example URL, and we should be able to assist.
+</p>		<div class="helpDate">
+		Last updated 8 March 2017	</div>
+	</div>
+<script>
+if (history.replaceState) {
+	history.replaceState(null, "", "/help?id=80");
+}
+</script>
+<p>
+<a href="help.html">&laquo; Support home</a>
+</p>
+</div>
+
+
+<div style="clear: both"></div>
+</div><!-- /content -->
+
+</div><!-- /bodywrap -->
+
+<div id="siteErrorBar"><div class="wrap" id="siteErrorBarCont">Loading...</div></div>
+
+
+
+<div id="footer">
+
+	<a href="index.html">About
+	</a><a href="products.html">Plans &amp; pricing
+	</a><a href="terms.html">Terms &amp; conditions
+	</a><a href="privacy.html">Privacy policy
+	</a><a href="notices.html">Notices
+	</a><a href="contact.html">Contact us
+	</a>
+	<div class="verybottom">
+		&copy; 2004&ndash;2026 Cbox Communications (Pty) Ltd, all rights reserved. 
+			0 ms. 
+			83ce		</a>
+	</div>
+
+</div>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','../www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-242554-2', {
+	'cookieDomain': 'www.cbox.ws'
+});
+ga('send', 'pageview');
+
+</script>
+
+
+<script src="code3e8e.js?20171024"></script>
+<script>
+	// Modal / naked mode.
+	if (window.isPopup) {
+		document.body.className = "Popped";
+	}
+	
+	// Only for CP pages
+	upgradeCheckboxes();
+
+var dropCrumb = function () {
+	if (!localStorage) {
+		return;
+	}
+	var bc = getCrumbs();
+	bc.push(location.href);
+	bc.splice(0, bc.length - 5);
+	localStorage.setItem("site:bread", JSON.stringify(bc));
+};
+
+var getCrumbs = function () {
+	if (!localStorage) {
+		return [];
+	}
+	var bcStr = localStorage.getItem("site:bread");
+	var bc = [];
+	if (bcStr) {
+		bc = JSON.parse(bcStr);
+	}
+	
+	return bc;
+}
+
+dropCrumb();
+</script>
+
+
+</body>
+
+<!-- Mirrored from www.cbox.ws/help?id=80 by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 13 May 2026 04:54:55 GMT -->
+</html>
+
